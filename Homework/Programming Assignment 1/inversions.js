@@ -7,22 +7,27 @@ data = data.map(num => +num);
 console.log(`Data.length is ${data.length}`);
 
 
-const mergeSort = (array) => {
+const mergeSort = (array, inversions=0) => {
   if (array.length <= 1){
-    return array;
+    return {array,
+      inversions}
   }
 
   let midpoint = Math.floor(array.length/2);
 
-  let leftArray = mergeSort(array.splice(0,midpoint));
-  let rightArray = mergeSort(array);
+  let leftArray = mergeSort(array.splice(0,midpoint), inversions);
+  let rightArray = mergeSort(array, inversions);
 
-  return merge(leftArray,rightArray);
+  return merge(leftArray.array,rightArray.array, 
+    (leftArray.inversions + rightArray.inversions));
+
+
 
 }
 
-const merge = (lArr, rArr) => {
+const merge = (lArr, rArr, inversions) => {
   let mergedArray = [];
+  
 
   while(lArr.length > 0 && rArr.length > 0){
     if(lArr[0] <= rArr[0]){
@@ -31,12 +36,15 @@ const merge = (lArr, rArr) => {
     } else {
       mergedArray.push(rArr[0]);
       rArr.shift();
+      inversions += lArr.length;
     }
   }
 
-  return mergedArray.concat(lArr, rArr);
+  return {
+    array: mergedArray.concat(lArr, rArr),
+    inversions};
 
 }
 
 let sorted = mergeSort(data);
-console.log(sorted);
+console.log(sorted.inversions);
