@@ -1,6 +1,8 @@
 const fs = require('fs');
 
-const data = fs.readFileSync('IntegerArray2.txt').toString().replace(/\r\n/g, '\n').split('\n');
+let data = fs.readFileSync('IntegerArray.txt').toString().replace(/\r\n/g, '\n').split('\n');
+
+data = data.map(num => +num);
 
 console.log(`Data.length is ${data.length}`);
 
@@ -24,9 +26,11 @@ const merge = (lArr, rArr) => {
 
   while(lArr.length > 0 && rArr.length > 0){
     if(lArr[0] <= rArr[0]){
-      mergedArray.push(lArr.splice(0,1));
+      mergedArray.push(lArr[0]);
+      lArr.shift();
     } else {
-      mergedArray.push(rArr.splice(0,1));
+      mergedArray.push(rArr[0]);
+      rArr.shift();
     }
   }
 
