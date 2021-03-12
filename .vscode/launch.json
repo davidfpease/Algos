@@ -11,7 +11,7 @@
       "skipFiles": [
         "<node_internals>/**"
       ],
-      "program": "${workspaceFolder}/Homework/Programming Assignment 1/inversions.js",
+      "program": "${workspaceFolder}/Homework/Programming Assignment 1/karatsuba.js",
       "cwd": "${workspaceFolder}/Homework/Programming Assignment 1"
     }
   ]
