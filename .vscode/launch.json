@@ -11,8 +11,8 @@
       "skipFiles": [
         "<node_internals>/**"
       ],
-      "program": "${workspaceFolder}/Homework/Programming Assignment 1/karatsuba.js",
-      "cwd": "${workspaceFolder}/Homework/Programming Assignment 1"
+      "program": "${workspaceFolder}/Homework/Programming Assignment 2/assignment2.js",
+      "cwd": "${workspaceFolder}/Homework/Programming Assignment 2"
     }
   ]
 }
