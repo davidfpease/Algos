@@ -76,8 +76,6 @@ const choosePivotMedian = (arr, left, right) => {
     group.splice(1,0,m);
     indices.splice(1,0,mIndex);
   }
-
-  
   return indices[1];
 }
 
@@ -91,7 +89,7 @@ const quickSort = (arr, left = 0 , right = arr.length-1, recursiveCall = false) 
   // let i = choosePivotRightElement(arr, left, right);
   let i = choosePivotMedian(arr, left, right);
 
-  //preprocessing step o fmoving the selected pivot to the first positions of subarray
+  //preprocessing step of moving the selected pivot to the first positions of subarray
   [arr[left], arr[i]] = [arr[i], arr[left]];
 
   let newPivot = partition(arr, left, right);
@@ -106,7 +104,7 @@ const quickSort = (arr, left = 0 , right = arr.length-1, recursiveCall = false) 
 
 //console.log(data);
 quickSort(data);
-console.log(data);
+console.log(data.slice(9990));
 console.log(comparisons);
 
 
